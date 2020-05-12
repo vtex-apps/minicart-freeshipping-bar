@@ -1,9 +1,9 @@
 {
-  "vendor": "CHANGE_ME",
-  "name": "CHANGE_ME",
-  "version": "0.0.0",
-  "title": "CHANGE_ME",
-  "description": "CHANGE_ME",
+  "vendor": "powerplanet",
+  "name": "powerplanet-components",
+  "version": "0.0.1",
+  "title": "Power Planet Components",
+  "description": "Power Planet Components",
   "builders": {
     "react": "3.x",
     "messages": "1.x",
