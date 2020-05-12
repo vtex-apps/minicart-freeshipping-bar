@@ -1,13 +1,13 @@
 import React, { useEffect, useCallback, useState } from 'react'
 import { useOrderForm } from 'vtex.order-manager/OrderForm'
 
-import styles from './MinicartFreightScale.css'
+import styles from './MinicartFreeshipping.css'
 
 interface Props {
     minFreightValue: number
 }
 
-const MinicartFreightScale: StorefrontFC<Props> = ({ minFreightValue }) => {
+const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
     const [shippingFreePercentage, setShippingFreePercentage] = useState(0)
     const [differenceBetwenValues, setDifferenceBetwenValues] = useState(0)
 
@@ -44,7 +44,7 @@ const MinicartFreightScale: StorefrontFC<Props> = ({ minFreightValue }) => {
                             shippingFreePercentage < 100
                                 ? shippingFreePercentage
                                 : 100
-                        }%`,
+                            }%`,
                         background: 'black',
                         height: 10,
                         transition: 'width 1s',
@@ -66,10 +66,10 @@ const MinicartFreightScale: StorefrontFC<Props> = ({ minFreightValue }) => {
                     para ganhar frete grátis
                 </p>
             ) : (
-                <p className={styles.sliderText}>
-                    <strong>Você ganhou frete grátis</strong>
-                </p>
-            )}
+                    <p className={styles.sliderText}>
+                        <strong>Você ganhou frete grátis</strong>
+                    </p>
+                )}
             <p className={styles.keepBuyingText} onClick={handleCloseMinicart}>
                 continuar comprando
             </p>
@@ -77,11 +77,11 @@ const MinicartFreightScale: StorefrontFC<Props> = ({ minFreightValue }) => {
     )
 }
 
-MinicartFreightScale.defaultProps = {
+MinicartFreeshipping.defaultProps = {
     minFreightValue: 500,
 }
 
-MinicartFreightScale.schema = {
+MinicartFreeshipping.schema = {
     title: 'Minicart Freight Scale',
     description: 'Minicart Freight Scale',
     type: 'object',
@@ -93,4 +93,4 @@ MinicartFreightScale.schema = {
     },
 }
 
-export default MinicartFreightScale
+export default MinicartFreeshipping
