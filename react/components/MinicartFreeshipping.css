@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Novecento sans wide';
+    src: url('//dzarm.vteximg.com.br/arquivos/Novecento-WideNormal.otf.css');
+}
+
+.freightScaleContainer {
+    margin: 10px 25px;
+}
+
+.sliderContainer {
+    background-color: #e2d6d1;
+    height: 10px;
+}
+
+.sliderText {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: 'Novecento sans wide', sans-serif;
+}
+
+.keepBuyingText {
+    text-decoration: underline;
+    font-family: 'Novecento sans wide', sans-serif;
+    text-align: center;
+    cursor: pointer;
+}

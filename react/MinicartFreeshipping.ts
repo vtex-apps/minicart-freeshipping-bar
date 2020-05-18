@@ -1,3 +1,3 @@
-import MinicartFreeshipping from './components/MinicartFreeshipping/MinicartFreeshipping'
+import MinicartFreeshipping from './components/MinicartFreeshipping'
 
 export default MinicartFreeshipping
