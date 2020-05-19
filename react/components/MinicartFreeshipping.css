@@ -3,20 +3,34 @@
     src: url('//dzarm.vteximg.com.br/arquivos/Novecento-WideNormal.otf.css');
 }
 
-.freightScaleContainer {
-    margin: 10px 25px;
+.freigthScaleContainer {
+    width: 100%;
+    padding: 0 35px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.freigthScaleContainer span{
+    font-size: 14px;
+    padding: 10px 0;
+}
+.freigthScaleContainer span strong{
+    color: #7e38e3;
+}
 .sliderContainer {
-    background-color: #e2d6d1;
+    background-color: #ffffff;
+    border: 1px solid #e2d6d1;
+    border-radius: 5px;
     height: 10px;
+    margin: 10px 0;
+}
+.barContainer {
+    border-radius: 5px;
 }
 
 .sliderText {
     text-align: center;
-    text-transform: uppercase;
     margin-bottom: 20px;
-    font-family: 'Novecento sans wide', sans-serif;
+    font-size: 14px;
 }
 
 .keepBuyingText {

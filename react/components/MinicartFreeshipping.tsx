@@ -15,14 +15,6 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
         orderForm: { value },
     } = useOrderForm()
 
-    const handleCloseMinicart = () => {
-        const minicartCloseButton: any = document.querySelector(
-            '.vtex-minicart-2-x-closeIconButton'
-        )
-
-        minicartCloseButton.click()
-    }
-
     useEffect(() => {
         handleUpdateMinicartValue(value)
     }, [value])
@@ -37,15 +29,16 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
 
     return (
         <div className={styles.freigthScaleContainer}>
-            <div className={styles.sliderContainer}>
-                <div
+            <span> !Completa tu pedido para teñer  <strong>Envio GRATIS 24¡</strong> </span>
+                <div className={styles.sliderContainer}>
+                    <div className={styles.barContainer}
                     style={{
                         width: `${
                             shippingFreePercentage < 100
                                 ? shippingFreePercentage
                                 : 100
                             }%`,
-                        background: 'black',
+                        background: '#98e501',
                         height: 10,
                         transition: 'width 1s',
                     }}
@@ -53,26 +46,23 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
             </div>
             {differenceBetwenValues > 0 ? (
                 <p className={styles.sliderText}>
-                    Faltam{' '}
-                    <strong style={{ fontSize: '20px' }}>
+                    !Solo te quedan{' '}
+                    <strong style={{ fontSize: '14px' }}>
                         {Math.max(0, differenceBetwenValues).toLocaleString(
                             'pt-br',
                             {
                                 style: 'currency',
-                                currency: 'BRL',
+                                currency: 'EUR',
                             }
                         )}
                     </strong>{' '}
-                    para ganhar frete grátis
+                    ¡
                 </p>
             ) : (
                     <p className={styles.sliderText}>
-                        <strong>Você ganhou frete grátis</strong>
+                        <strong>!Ganaste envío gratis¡</strong>
                     </p>
                 )}
-            <p className={styles.keepBuyingText} onClick={handleCloseMinicart}>
-                continuar comprando
-            </p>
         </div>
     )
 }
