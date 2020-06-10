@@ -3,6 +3,7 @@
     "component": "MinicartFreeshipping"
   },
   "powerplanet-buy-button": {
-    "component": "BuyButton"
+    "component": "BuyButton",
+    "allowed": ["add-to-cart-button"]
   }
 }
