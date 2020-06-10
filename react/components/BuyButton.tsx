@@ -5,8 +5,6 @@ import { injectIntl } from 'react-intl'
 
 import styles from './BuyButton.css'
 
-// import { Container } from './styles';
-
 const BuyButton = props => {
   return (
     <div className={styles.buyButtonRow}>

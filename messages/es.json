@@ -1,6 +1,4 @@
 {
-  "admin/test": "teste",
-  "store/test": "teste",
   "store/add-to-cart-button": "Añadir al Carrito",
   "store/buy-button": "Comprar"
 }
