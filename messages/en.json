@@ -1,4 +1,6 @@
 {
   "admin/test": "test",
-  "store/test": "test"
+  "store/test": "test",
+  "store/add-to-cart-button-unavailable": "qwe",
+  "store/add-to-cart-button": "qwe"
 }

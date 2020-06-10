@@ -1,5 +1,8 @@
 {
   "powerplanet-minicart-bar": {
     "component": "MinicartFreeshipping"
+  },
+  "powerplanet-buy-button": {
+    "component": "BuyButton"
   }
 }
