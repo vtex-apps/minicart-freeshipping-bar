@@ -58,11 +58,11 @@
     display: flex;
     align-items: center;
   }
-  .buyButton :global(.vtex-button) {
-    min-width: 250px;
+  .buyButton {
     margin-right: 10px;
+    width: 50%;
   }
-  .addToCartButton :global(.vtex-button) {
-    min-width: 230px;
+  .addToCartButton {
+    width: 50%;
   }
 }
