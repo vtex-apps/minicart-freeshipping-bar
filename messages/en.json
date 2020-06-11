@@ -1,4 +1,4 @@
 {
-  "admin/test": "test",
-  "store/test": "test"
+  "store/add-to-cart-button": "Add to Cart",
+  "store/buy-button": "Buy"
 }
