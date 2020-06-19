@@ -14,6 +14,9 @@ const BuyButton = props => {
           text={props.intl.formatMessage({
             id: 'store/buy-button',
           })}
+          unavailableText={props.intl.formatMessage({
+            id: 'store/buy-unavailable',
+          })}
         />
       </div>
       <div className={styles.addToCartButton}>
@@ -21,6 +24,9 @@ const BuyButton = props => {
           id="add-to-cart-button"
           text={props.intl.formatMessage({
             id: 'store/add-to-cart-button',
+          })}
+          unavailableText={props.intl.formatMessage({
+            id: 'store/buy-unavailable',
           })}
         />
       </div>

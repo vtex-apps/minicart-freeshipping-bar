@@ -1,4 +1,5 @@
 {
   "store/add-to-cart-button": "Add to Cart",
-  "store/buy-button": "Buy"
+  "store/buy-button": "Buy",
+  "store/buy-unavailable": "Unavailable"
 }
