@@ -1,4 +1,5 @@
 {
   "store/add-to-cart-button": "Adicionar ao carrinho",
-  "store/buy-button": "Comprar"
+  "store/buy-button": "Comprar",
+  "store/buy-unavailable": "Indisponível"
 }
