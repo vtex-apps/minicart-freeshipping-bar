@@ -31,7 +31,7 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
     <div className={styles.freigthScaleContainer}>
       <span>
         {' '}
-        !Completa tu pedido para teñer <strong>Envio GRATIS 24¡</strong>{' '}
+        ¡Completa tu pedido para teñer <strong>Envio GRATIS 24!</strong>{' '}
       </span>
       <div className={styles.sliderContainer}>
         <div
@@ -48,18 +48,18 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
       </div>
       {differenceBetwenValues > 0 ? (
         <p className={styles.sliderText}>
-          !Solo te quedan{' '}
+          ¡Solo te quedan{' '}
           <strong style={{ fontSize: '14px' }}>
             {Math.max(0, differenceBetwenValues).toLocaleString('pt-br', {
               style: 'currency',
               currency: 'EUR',
             })}
           </strong>{' '}
-          ¡
+          !
         </p>
       ) : (
         <p className={styles.sliderText}>
-          <strong>!Ganaste envío gratis¡</strong>
+          <strong>¡Ganaste envío gratis!</strong>
         </p>
       )}
     </div>
