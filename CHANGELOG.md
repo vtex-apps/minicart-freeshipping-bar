@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+-   Minicart spacing fix
+
 ### [0.2.3] - 2020-07-02
 
 ### Fixed
