@@ -11,6 +11,7 @@ const BuyButton = props => {
       <div className={styles.buyButton}>
         <ExtensionPoint
           id="add-to-cart-button"
+          isOneClickBuy="true"
           text={props.intl.formatMessage({
             id: 'store/buy-button',
           })}
