@@ -1,7 +1,7 @@
 {
   "vendor": "powerplanet",
   "name": "powerplanet-components",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "title": "powerplanet-components",
   "description": "Power Planet Components",
   "builders": {
