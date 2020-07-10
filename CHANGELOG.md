@@ -7,11 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [0.2.5] - 2020-07-09
+
+### Fixed
+
+- isOneClickBuy prop changed to true on buy button
+
 ### [0.2.4] - 2020-07-08
 
 ### Fixed
 
--   Minicart spacing fix
+- Minicart spacing fix
 
 ### [0.2.3] - 2020-07-02
 
