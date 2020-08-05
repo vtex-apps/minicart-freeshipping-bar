@@ -66,7 +66,9 @@
     "vtex.address-form": "4.x",
     "vtex.store-graphql": "2.x"
   },
-  "registries": ["smartcheckout"],
+  "registries": [
+    "smartcheckout"
+  ],
   "policies": [],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

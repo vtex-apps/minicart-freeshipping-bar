@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, useState } from 'react'
 import { useOrderForm } from 'vtex.order-manager/OrderForm'
 
 import styles from './MinicartFreeshipping.css'
+import { FormattedMessage } from 'react-intl'
 
 interface Props {
   minFreightValue: number
@@ -31,7 +32,10 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
     <div className={styles.freigthScaleContainer}>
       <span>
         {' '}
-        ¡Completa tu pedido para teñer <strong>Envio GRATIS 24!</strong>{' '}
+        <FormattedMessage id="minicartbar.text1" />{' '}
+        <strong>
+          <FormattedMessage id="minicartbar.text2" />
+        </strong>{' '}
       </span>
       <div className={styles.sliderContainer}>
         <div
@@ -48,7 +52,7 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
       </div>
       {differenceBetwenValues > 0 ? (
         <p className={styles.sliderText}>
-          ¡Solo te quedan{' '}
+          <FormattedMessage id="minicartbar.text3" />{' '}
           <strong style={{ fontSize: '14px' }}>
             {Math.max(0, differenceBetwenValues).toLocaleString('pt-br', {
               style: 'currency',
@@ -59,7 +63,9 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
         </p>
       ) : (
         <p className={styles.sliderText}>
-          <strong>¡Ganaste envío gratis!</strong>
+          <strong>
+            <FormattedMessage id="minicartbar.text4" />
+          </strong>
         </p>
       )}
     </div>
@@ -76,7 +82,7 @@ MinicartFreeshipping.schema = {
   type: 'object',
   properties: {
     minFreightValue: {
-      title: 'Valor mínimo para Frete Grátis',
+      title: 'Establecer el valor mínimo para envío gratis',
       type: 'number',
     },
   },
