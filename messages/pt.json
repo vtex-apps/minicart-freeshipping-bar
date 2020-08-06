@@ -1,5 +1,9 @@
 {
   "store/add-to-cart-button": "Adicionar ao carrinho",
   "store/buy-button": "Comprar",
-  "store/buy-unavailable": "Indisponível"
+  "store/buy-unavailable": "Indisponível",
+  "minicartbar.text1": "Complete seu pedido para ter",
+  "minicartbar.text2": "Frete GRÁTIS 24h",
+  "minicartbar.text3": "Só faltam",
+  "minicartbar.text4": "Você ganhou frete grátis!"
 }

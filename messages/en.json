@@ -1,5 +1,9 @@
 {
   "store/add-to-cart-button": "Add to Cart",
   "store/buy-button": "Buy",
-  "store/buy-unavailable": "Unavailable"
+  "store/buy-unavailable": "Unavailable",
+  "minicartbar.text1": "Complete your order to have",
+  "minicartbar.text2": "FREE shipping",
+  "minicartbar.text3": "Only left",
+  "minicartbar.text4": "You won free shipping"
 }

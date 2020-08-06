@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [0.3.0] - 2020-08-06
+
+### Added
+
+- Free shipping component texts now have dynamic translation
+
 ### [0.2.5] - 2020-07-09
 
 ### Fixed

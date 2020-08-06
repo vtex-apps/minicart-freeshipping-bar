@@ -1,5 +1,9 @@
 {
   "store/buy-button": "store/buy-button",
   "store/add-to-cart-button": "store/add-to-cart-button",
-  "store/buy-unavailable": "store/buy-unavailable"
+  "store/buy-unavailable": "store/buy-unavailable",
+  "minicartbar.text1": "minicartbar.text1",
+  "minicartbar.text2": "minicartbar.text2",
+  "minicartbar.text3": "minicartbar.text3",
+  "minicartbar.text4": "minicartbar.text4"
 }
