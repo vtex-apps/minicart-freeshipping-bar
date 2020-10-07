@@ -1,20 +1,11 @@
-@font-face {
-  font-family: 'Novecento sans wide';
-  src: url('//dzarm.vteximg.com.br/arquivos/Novecento-WideNormal.otf.css');
-}
-
 .freigthScaleContainer {
   width: 100%;
-  padding: 10px 35px 0 ;
+  padding: 10px 35px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .freigthScaleContainer span {
   font-size: 14px;
-  padding: 10px 0;
-}
-.freigthScaleContainer span strong {
-  color: #7e38e3;
 }
 .sliderContainer {
   background-color: #ffffff;
@@ -25,10 +16,31 @@
 }
 .barContainer {
   border-radius: 5px;
+  background:blue;
+  height: 10px;
+  transition: width 1s;
 }
 
 .sliderText {
   text-align: center;
-  margin-bottom: 20px;
   font-size: 14px;
+}
+.text1{
+  color: black;
+}
+.text2{
+  color: black;
+  font-weight: bold;
+}
+.text3{
+  color: black;
+}
+.text4{
+  font-weight:bold;
+  text-align:center;
+}
+.currencyText{
+  font-size: 14px;
+  font-weight: bold;
+  
 }
