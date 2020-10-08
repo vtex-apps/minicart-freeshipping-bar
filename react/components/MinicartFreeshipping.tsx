@@ -1,6 +1,5 @@
 import React, { useEffect, useCallback, useState } from 'react'
 import { useOrderForm } from 'vtex.order-manager/OrderForm'
-
 import styles from './MinicartFreeshipping.css'
 import { FormattedMessage } from 'react-intl'
 
@@ -32,42 +31,40 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
     <div className={styles.freigthScaleContainer}>
       <span>
         {' '}
-        <FormattedMessage id="store/minicartbar.text1" />{' '}
-        <strong>
-          <FormattedMessage id="store/minicartbar.text2" />
-        </strong>{' '}
+        <div className={styles.text1}>
+          <FormattedMessage id="store/minicartbar.text1" />{' '}
+          <span className={styles.text2}>
+            <FormattedMessage id="store/minicartbar.text2" />
+          </span>
+        </div>{' '}
       </span>
       <div className={styles.sliderContainer}>
         <div
           className={styles.barContainer}
           style={{
-            width: `${
-              shippingFreePercentage < 100 ? shippingFreePercentage : 100
-            }%`,
-            background: '#98e501',
-            height: 10,
-            transition: 'width 1s',
+            width: `${shippingFreePercentage < 100 ? shippingFreePercentage : 100}%`
           }}
         />
       </div>
       {differenceBetwenValues > 0 ? (
         <p className={styles.sliderText}>
-          <FormattedMessage id="store/minicartbar.text3" />{' '}
-          <strong style={{ fontSize: '14px' }}>
-            {Math.max(0, differenceBetwenValues).toLocaleString('pt-br', {
+          <span className={styles.text3}>
+            <FormattedMessage id="store/minicartbar.text3" />{' '}
+          </span>
+          <span className={styles.currencyText}>
+            {Math.max(0, differenceBetwenValues).toLocaleString('en-GB', {
               style: 'currency',
               currency: 'EUR',
             })}
-          </strong>{' '}
-          !
+            {' '}
+          ! </span>
         </p>
       ) : (
-        <p className={styles.sliderText}>
-          <strong>
+          <p className={styles.text4}>
+
             <FormattedMessage id="store/minicartbar.text4" />
-          </strong>
-        </p>
-      )}
+          </p>
+        )}
     </div>
   )
 }

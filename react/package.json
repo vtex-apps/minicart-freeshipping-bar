@@ -1,5 +1,5 @@
 {
-  "name": "powerplanet-components",
+  "name": "minicart-freeshipping-bar",
   "version": "0.0.1",
   "scripts": {
     "test": "vtex-test-tools test"
@@ -21,6 +21,6 @@
     "apollo-cache-inmemory": "^1.6.5",
     "graphql": "^14.6.0",
     "prop-types": "^15.7.2",
-    "typescript": "3.8.3"
+    "typescript": "3.9.7"
   }
 }
