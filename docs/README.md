@@ -16,7 +16,7 @@ The **amount** value, which by default is 200, can be edited inside your store's
 
 It consist of 4 different texts, which have messages developed for: English, Spanish and Portuguese. 
 
-![alt text](https://gitlab.com/vtex_europe/minicart-free-shipping-bar/-/blob/master/docs/Screenshot_2020-10-08_at_10.55.51.png)
+![alt text](https://gitlab.com/vtex_europe/minicart-free-shipping-bar/-/blob/master/docs/Screenshot_2020-10-08_at_10.55.51.png?raw=true)
 
 ## Configuration
 You should first install the app on the desired **Account**. To install run: `vtex install vtex.minicart-freeshipping-bar@0.x` inside the Toolbelt. 
