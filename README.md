@@ -1,7 +1,5 @@
 `📢 Use this project, [contribute](https://github.com/vtex-apps/minicart-freeshipping-bar) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).`
 
-> :warning: *Remember to replace the values between braces according to your scenario. For example: https://github.com/vtex-apps/breadcrumb*
-
 # Mini Cart Free Shipping Bar
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
