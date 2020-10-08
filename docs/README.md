@@ -12,7 +12,7 @@ The **Mini Cart Free Shipping Bar** is a MiniCart.v2 component that adds a progr
 This block is **only a visual guide**, meaning it will not make any calculation or deduct the shipping amount from your store. You should pair this app with a **Free Shippin Promotion** of the same **amount**
 The **amount** value, which by default is 200, can be edited inside your store's **Site Editor**. 
 It consist of 4 different texts, which have messages developed for: English, Spanish and Portuguese. 
-![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
+![Media Placeholder](https://gitlab.com/vtex_europe/minicart-free-shipping-bar/-/blob/master/docs/Screenshot_2020-10-08_at_10.55.51.png)
 
 ## Configuration
 You should first install the app on the desired **Account**. To install run: `vtex install vtex.minicart-freeshipping-bar@0.x` inside the Toolbelt. 
