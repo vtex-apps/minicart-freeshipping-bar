@@ -9,10 +9,14 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 The **Mini Cart Free Shipping Bar** is a MiniCart.v2 component that adds a progress bar to the minicart in order to display how much progress a customer has for to **win** free shipping. 
+
 This block is **only a visual guide**, meaning it will not make any calculation or deduct the shipping amount from your store. You should pair this app with a **Free Shippin Promotion** of the same **amount**
+
 The **amount** value, which by default is 200, can be edited inside your store's **Site Editor**. 
+
 It consist of 4 different texts, which have messages developed for: English, Spanish and Portuguese. 
-![Media Placeholder](https://gitlab.com/vtex_europe/minicart-free-shipping-bar/-/blob/master/docs/Screenshot_2020-10-08_at_10.55.51.png)
+
+![alt text](https://gitlab.com/vtex_europe/minicart-free-shipping-bar/-/blob/master/docs/Screenshot_2020-10-08_at_10.55.51.png)
 
 ## Configuration
 You should first install the app on the desired **Account**. To install run: `vtex install vtex.minicart-freeshipping-bar@0.x` inside the Toolbelt. 
