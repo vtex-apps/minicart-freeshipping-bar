@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "minicart-freeshipping-bar",
-  "version": "0.0.5",
+  "version": "0.0.52",
   "title": "Minicart Free Shipping Bar",
   "description": "Minicart Free Shipping Bar",
   "builders": {
@@ -23,6 +23,17 @@
     "vtex.shipping-estimate-translator": "2.x",
     "vtex.format-currency": "0.x",
     "vtex.store-graphql": "2.x"
+  },
+  "settingsSchema": {
+    "title": "Minicart Free Shipping progress",
+    "type": "object",
+    "properties": {
+      "freeShippingAmount": {
+        "title": "Free Shipping Amount",
+        "description": "Enter the minimum amount for free shipping",
+        "type": "number"
+      }
+    }
   },
   "registries": [
     "smartcheckout"
