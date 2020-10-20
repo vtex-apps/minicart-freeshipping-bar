@@ -3,6 +3,7 @@ import { useOrderForm } from 'vtex.order-manager/OrderForm'
 import styles from './MinicartFreeshipping.css'
 import { FormattedMessage } from 'react-intl'
 
+
 interface Props {
   minFreightValue: number
 }
@@ -26,31 +27,12 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
     },
     [setShippingFreePercentage, setDifferenceBetwenValues]
   )
+  if (differenceBetwenValues == minFreightValue) {
+    return (
+      <div className={styles.freigthScaleContainer}>
+        <div className={styles.text0}>
+          <FormattedMessage id="store/minicartbar.text0" />{''}
 
-  return (
-    <div className={styles.freigthScaleContainer}>
-      <span>
-        {' '}
-        <div className={styles.text1}>
-          <FormattedMessage id="store/minicartbar.text1" />{' '}
-          <span className={styles.text2}>
-            <FormattedMessage id="store/minicartbar.text2" />
-          </span>
-        </div>{' '}
-      </span>
-      <div className={styles.sliderContainer}>
-        <div
-          className={styles.barContainer}
-          style={{
-            width: `${shippingFreePercentage < 100 ? shippingFreePercentage : 100}%`
-          }}
-        />
-      </div>
-      {differenceBetwenValues > 0 ? (
-        <p className={styles.sliderText}>
-          <span className={styles.text3}>
-            <FormattedMessage id="store/minicartbar.text3" />{' '}
-          </span>
           <span className={styles.currencyText}>
             {Math.max(0, differenceBetwenValues).toLocaleString('en-GB', {
               style: 'currency',
@@ -58,15 +40,57 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
             })}
             {' '}
           ! </span>
-        </p>
-      ) : (
-          <p className={styles.text4}>
+        </div>
 
-            <FormattedMessage id="store/minicartbar.text4" />
+      </div>
+
+    )
+
+  } else {
+
+
+
+    return (
+      <div className={styles.freigthScaleContainer}>
+        <span>
+          {' '}
+          <div className={styles.text1}>
+            <FormattedMessage id="store/minicartbar.text1" />{' '}
+            <span className={styles.text2}>
+              <FormattedMessage id="store/minicartbar.text2" />
+            </span>
+          </div>{' '}
+        </span>
+        <div className={styles.sliderContainer}>
+          <div
+            className={styles.barContainer}
+            style={{
+              width: `${shippingFreePercentage < 100 ? shippingFreePercentage : 100}%`
+            }}
+          />
+        </div>
+        {differenceBetwenValues > 0 ? (
+          <p className={styles.sliderText}>
+            <span className={styles.text3}>
+              <FormattedMessage id="store/minicartbar.text3" />{' '}
+            </span>
+            <span className={styles.currencyText}>
+              {Math.max(0, differenceBetwenValues).toLocaleString('en-GB', {
+                style: 'currency',
+                currency: 'EUR',
+              })}
+              {' '}
+          ! </span>
           </p>
-        )}
-    </div>
-  )
+        ) : (
+            <p className={styles.text4}>
+
+              <FormattedMessage id="store/minicartbar.text4" />
+            </p>
+          )}
+      </div>
+    )
+  }
 }
 
 MinicartFreeshipping.defaultProps = {
