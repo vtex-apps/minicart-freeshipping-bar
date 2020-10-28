@@ -1,17 +1,21 @@
-import React, { useEffect, useCallback, useState } from 'react'
+import React, { useEffect, useCallback, useState, FunctionComponent } from 'react'
 import { useOrderForm } from 'vtex.order-manager/OrderForm'
 import styles from './MinicartFreeshipping.css'
+import { useQuery } from 'react-apollo'
+import AppSettings from './minicartbarSettings.graphql'
 import { FormattedMessage } from 'react-intl'
-
-
-interface Props {
-  minFreightValue: number
+interface SettingsProps {
+  settings: Settings
+}
+interface Settings {
+  freeShippingAmount: number
+  currencyFormat: string
+  localeSelector: string
 }
 
-const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
+const MinimumFreightValue: FunctionComponent<SettingsProps> = ({ settings, }) => {
   const [shippingFreePercentage, setShippingFreePercentage] = useState(0)
   const [differenceBetwenValues, setDifferenceBetwenValues] = useState(0)
-
   const {
     orderForm: { value },
   } = useOrderForm()
@@ -22,24 +26,24 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
 
   const handleUpdateMinicartValue = useCallback(
     value => {
-      setShippingFreePercentage(Math.round(value / minFreightValue))
-      setDifferenceBetwenValues(minFreightValue - value / 100)
+      setShippingFreePercentage(Math.round(value / settings.freeShippingAmount))
+      setDifferenceBetwenValues(settings.freeShippingAmount - value / 100)
     },
     [setShippingFreePercentage, setDifferenceBetwenValues]
   )
-  if (differenceBetwenValues == minFreightValue) {
+  if (differenceBetwenValues == settings.freeShippingAmount) {
     return (
       <div className={styles.freigthScaleContainer}>
         <div className={styles.text0}>
           <FormattedMessage id="store/minicartbar.text0" />{''}
 
           <span className={styles.currencyText}>
-            {Math.max(0, differenceBetwenValues).toLocaleString('en-GB', {
+            {Math.max(0, differenceBetwenValues).toLocaleString(settings.localeSelector, {
               style: 'currency',
-              currency: 'EUR',
+              currency: settings.currencyFormat,
             })}
             {' '}
-          ! </span>
+              ! </span>
         </div>
 
       </div>
@@ -47,9 +51,6 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
     )
 
   } else {
-
-
-
     return (
       <div className={styles.freigthScaleContainer}>
         <span>
@@ -75,12 +76,12 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
               <FormattedMessage id="store/minicartbar.text3" />{' '}
             </span>
             <span className={styles.currencyText}>
-              {Math.max(0, differenceBetwenValues).toLocaleString('en-GB', {
+              {Math.max(0, differenceBetwenValues).toLocaleString(settings.localeSelector, {
                 style: 'currency',
-                currency: 'EUR',
+                currency: settings.currencyFormat,
               })}
               {' '}
-          ! </span>
+                ! </span>
           </p>
         ) : (
             <p className={styles.text4}>
@@ -91,22 +92,23 @@ const MinicartFreeshipping: StorefrontFC<Props> = ({ minFreightValue }) => {
       </div>
     )
   }
+
 }
 
-MinicartFreeshipping.defaultProps = {
-  minFreightValue: 200,
-}
+const MinicartFreeshipping: FunctionComponent = () => {
+  const { data } = useQuery(AppSettings, { ssr: false })
 
-MinicartFreeshipping.schema = {
-  title: 'Minicart Freight Scale',
-  description: 'Minicart Freight Scale',
-  type: 'object',
-  properties: {
-    minFreightValue: {
-      title: 'Establecer el valor mínimo para envío gratis',
-      type: 'number',
-    },
-  },
-}
+  if (!data?.appSettings?.message) return null
 
+  const settings = JSON.parse(data.appSettings.message)
+
+  if (!settings.freeShippingAmount) {
+    console.warn(
+      'No Free Shipping amount set'
+    )
+
+    return null
+  }
+  return <MinimumFreightValue settings={settings} />
+}
 export default MinicartFreeshipping
