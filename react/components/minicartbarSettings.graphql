@@ -1,0 +1,7 @@
+query AppSettings {
+  appSettings(app: "vtex.minicart-freeshipping-bar", version: "0.x")
+    @context(provider: "vtex.apps-graphql") {
+    message
+    
+  }
+} 

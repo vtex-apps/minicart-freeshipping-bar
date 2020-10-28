@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "minicart-freeshipping-bar",
-  "version": "0.0.52",
+  "version": "0.0.522",
   "title": "Minicart Free Shipping Bar",
   "description": "Minicart Free Shipping Bar",
   "builders": {
@@ -22,7 +22,8 @@
     "vtex.checkout-resources": "0.x",
     "vtex.shipping-estimate-translator": "2.x",
     "vtex.format-currency": "0.x",
-    "vtex.store-graphql": "2.x"
+    "vtex.store-graphql": "2.x",
+    "vtex.apps-graphql": "2.x"
   },
   "settingsSchema": {
     "title": "Minicart Free Shipping progress",
@@ -32,12 +33,21 @@
         "title": "Free Shipping Amount",
         "description": "Enter the minimum amount for free shipping",
         "type": "number"
+      },
+      "currencyFormat": {
+        "title": "Currency Format",
+        "description": "Enter the currency code example: USD, EUR, BRL",
+        "type": "string"
+      },
+      "localeSelector":{
+        "title":"Locale Selector",
+        "description":"Enter the locale for the component: es-ES",
+        "type":"string"
       }
     }
   },
   "registries": [
     "smartcheckout"
   ],
-  "policies": [],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
