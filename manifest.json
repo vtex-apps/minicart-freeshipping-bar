@@ -33,21 +33,9 @@
         "title": "Free Shipping Amount",
         "description": "Enter the minimum amount for free shipping",
         "type": "number"
-      },
-      "currencyFormat": {
-        "title": "Currency Format",
-        "description": "Enter the currency code example: USD, EUR, BRL",
-        "type": "string"
-      },
-      "localeSelector":{
-        "title":"Locale Selector",
-        "description":"Enter the locale for the component: es-ES",
-        "type":"string"
       }
     }
   },
-  "registries": [
-    "smartcheckout"
-  ],
+  "registries": ["smartcheckout"],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
