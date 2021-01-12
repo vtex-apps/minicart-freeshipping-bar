@@ -17,8 +17,6 @@ interface SettingsProps {
 }
 interface Settings {
   freeShippingAmount: number
-  currencyFormat: string
-  localeSelector: string
 }
 
 const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
