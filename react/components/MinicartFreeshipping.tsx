@@ -53,7 +53,7 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
         <>
           <span>
             <div className={styles.text1}>
-              <FormattedMessage id="store/minicartbar.text1" />{' '}
+              <FormattedMessage id="store/minicartbar.text1" />
               <span className={styles.text2}>
                 <FormattedMessage id="store/minicartbar.text2" />
               </span>
