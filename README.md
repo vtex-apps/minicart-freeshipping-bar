@@ -13,17 +13,16 @@ The **amount** value, can be edited inside the **App Settings**
 The app is compatible with 5 different languages including: English, Spanish, Italian, Portuguese and Romanian. 
 
 ## Settings
-The app has three configurable settings under my-apps section on VTEX CMS.
-The first setting is the **amount** for free shipping: expects a number. 
-The second setting is the **currency**: define using ISO currency  codes which currency will be displayed. Example EUR
-The third is the **Locale**: how will the currency format will be presented. example es-ES
+The app has one configurable setting under My Apps section inside VTEX Admin.
+The setting is the **amount** for free shipping: expects a number.
+This will be the amount customers have to reach for the progress bar to completely fill up. 
 
 ## Configuration
-You should first install the app on the desired **Account**. To install run: `vtex install vtex.minicart-freeshipping-bar@0.x` inside the Toolbelt. 
-You can also install it as a **dependency** on your **Manifest** inside your store's **Store Theme**:
+You should first install the app on the desired **Account**. To install run: `vtex install vtexeurope.minicart-freeshipping-bar@1.x` inside the Toolbelt. 
+After that you should declare the app as a **peerDependency** on your **Manifest** inside your store's **Store Theme**:
 ```
-"dependencies": { 
-    "vtex.minicart-freeshipping-bar": "0.x"
+"peerDependencies": { 
+    "vtexeurope.minicart-freeshipping-bar": "1.x"
 }
 ```
 
@@ -107,32 +106,16 @@ After this is completed, you should add the block **minicart-bar** inside your *
 }
 ```
 ## Customization
-
-The first thing that should be present in this section is the sentence below, showing users the recipe pertaining to CSS customization in blocks:
-
-Thereafter, you should add a single column table with the available CSS handles for that block:
-
+Here is the list of available CSS Handles you can use on the store
 | CSS Handles |
 | ----------- | 
 | `freigthScaleContainer` | 
 | `.sliderContainer` | 
 | `.barContainer` | 
 | `.sliderText` | 
+| `.text0` |
 | `.text1` |
 | `.text2` |
 | `.text3` |
 | `.text4` |
 | `.currencyText` |
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
