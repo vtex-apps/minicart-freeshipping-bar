@@ -107,7 +107,3 @@ const MinicartFreeshipping: FunctionComponent = () => {
   return <MinimumFreightValue settings={settings} />
 }
 export default MinicartFreeshipping
-
-
-
-Hola! Somos dos chicas y trabajamos en empresas de tecnología en Barcelona. Estamos buscando un piso para nosotras y dos y nos interesaría ver el piso. Cuando podíamos pasar a verlo? Gracias y un saludo!
