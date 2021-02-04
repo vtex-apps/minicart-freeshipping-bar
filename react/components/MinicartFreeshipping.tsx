@@ -25,7 +25,7 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   const [shippingFreePercentage, setShippingFreePercentage] = useState(0)
   const [differenceBetwenValues, setDifferenceBetwenValues] = useState(0)
   const {
-    orderForm: { value },
+    orderForm: { totalizers, value },
   } = useOrderForm()
 
   const handleUpdateMinicartValue = useCallback(
@@ -36,9 +36,13 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
     [settings.freeShippingAmount]
   )
 
+  const valueWithDiscount = value
+    ? Number(totalizers[0]?.value) + Number(totalizers[1]?.value)
+    : value
+
   useEffect(() => {
-    handleUpdateMinicartValue(value)
-  }, [handleUpdateMinicartValue, value])
+    handleUpdateMinicartValue(valueWithDiscount)
+  }, [handleUpdateMinicartValue, valueWithDiscount])
 
   return (
     <div className={styles.freigthScaleContainer}>
