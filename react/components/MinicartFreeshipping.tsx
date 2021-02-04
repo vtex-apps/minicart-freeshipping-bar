@@ -25,11 +25,8 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   const [shippingFreePercentage, setShippingFreePercentage] = useState(0)
   const [differenceBetwenValues, setDifferenceBetwenValues] = useState(0)
   const {
-    orderForm: { totalizers },
+    orderForm: { totalizers, value },
   } = useOrderForm()
-
-  const valueWithDiscount =
-    Number(totalizers[0].value) + Number(totalizers[1].value)
 
   const handleUpdateMinicartValue = useCallback(
     val => {
@@ -38,6 +35,10 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
     },
     [settings.freeShippingAmount]
   )
+
+  const valueWithDiscount = value
+    ? Number(totalizers[0]?.value) + Number(totalizers[1]?.value)
+    : value
 
   useEffect(() => {
     handleUpdateMinicartValue(valueWithDiscount)
@@ -103,6 +104,7 @@ const MinicartFreeshipping: FunctionComponent = () => {
 
   if (!settings.freeShippingAmount) {
     console.warn('No Free Shipping amount set')
+
     return null
   }
   return <MinimumFreightValue settings={settings} />
