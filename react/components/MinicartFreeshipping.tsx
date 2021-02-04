@@ -48,7 +48,7 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
       {differenceBetwenValues === settings.freeShippingAmount ? (
         <div className={styles.text0}>
           <FormattedMessage id="store/minicartbar.text0" />
-          <FormattedCurrency value={Math.max(0, differenceBetwenValues)} />
+          <FormattedCurrency value={Math.max(0, differenceBetwenValues)} />!
         </div>
       ) : (
         <>
