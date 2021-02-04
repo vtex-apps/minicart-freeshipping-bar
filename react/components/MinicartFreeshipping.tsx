@@ -80,6 +80,7 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
                 <FormattedCurrency
                   value={Math.max(0, differenceBetwenValues)}
                 />
+                !
               </span>
             </p>
           ) : (
