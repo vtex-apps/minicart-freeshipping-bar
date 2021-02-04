@@ -25,8 +25,11 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   const [shippingFreePercentage, setShippingFreePercentage] = useState(0)
   const [differenceBetwenValues, setDifferenceBetwenValues] = useState(0)
   const {
-    orderForm: { value },
+    orderForm: { totalizers },
   } = useOrderForm()
+
+  const valueWithDiscount =
+    Number(totalizers[0].value) + Number(totalizers[1].value)
 
   const handleUpdateMinicartValue = useCallback(
     val => {
@@ -37,15 +40,15 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   )
 
   useEffect(() => {
-    handleUpdateMinicartValue(value)
-  }, [handleUpdateMinicartValue, value])
+    handleUpdateMinicartValue(valueWithDiscount)
+  }, [handleUpdateMinicartValue, valueWithDiscount])
 
   return (
     <div className={styles.freigthScaleContainer}>
       {differenceBetwenValues === settings.freeShippingAmount ? (
         <div className={styles.text0}>
           <FormattedMessage id="store/minicartbar.text0" />
-          <FormattedCurrency value={Math.max(0, differenceBetwenValues)} />!
+          <FormattedCurrency value={Math.max(0, differenceBetwenValues)} />
         </div>
       ) : (
         <>
@@ -77,7 +80,6 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
                 <FormattedCurrency
                   value={Math.max(0, differenceBetwenValues)}
                 />
-                !
               </span>
             </p>
           ) : (
@@ -100,9 +102,12 @@ const MinicartFreeshipping: FunctionComponent = () => {
 
   if (!settings.freeShippingAmount) {
     console.warn('No Free Shipping amount set')
-
     return null
   }
   return <MinimumFreightValue settings={settings} />
 }
 export default MinicartFreeshipping
+
+
+
+Hola! Somos dos chicas y trabajamos en empresas de tecnología en Barcelona. Estamos buscando un piso para nosotras y dos y nos interesaría ver el piso. Cuando podíamos pasar a verlo? Gracias y un saludo!
