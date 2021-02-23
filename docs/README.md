@@ -1,4 +1,4 @@
-`📢 Use this project, [contribute](https://github.com/vtex-apps/minicart-freeshipping-bar) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).`
+`=� Use this project, [contribute](https://github.com/vtex-apps/minicart-freeshipping-bar) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).`
 
 > :warning: *Remember to replace the values between braces according to your scenario. For example: https://github.com/vtex-apps/breadcrumb*
 
@@ -120,7 +120,7 @@ Thereafter, you should add a single column table with the available CSS handles 
 | `.text4` |
 | `.currencyText` |
 
-## Contributors ✨
+## Contributors (
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -132,3 +132,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+
+**Upcoming documentation:**
+
+ - [Fix bug reported regarding totalizers with tax](https://github.com/vtex-apps/minicart-freeshipping-bar/pull/3)
