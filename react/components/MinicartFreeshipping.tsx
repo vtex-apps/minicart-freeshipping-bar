@@ -36,13 +36,16 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
     [settings.freeShippingAmount]
   )
 
-  const valueWithDiscount = value
-    ? Number(totalizers[0]?.value) + Number(totalizers[1]?.value)
-    : value
+  const getValues = (idValue) => totalizers?.find(({ id }) => id === idValue)?.value 
+  const discountTotal = getValues("Discounts")
+  const valueWithDiscount = !discountTotal
+    ? value
+    : getValues("Items") + (!discountTotal ? 0 : discountTotal)
+  const valueWithoutShipping = !getValues("Shipping") ? getValues("Shipping") : 0
 
   useEffect(() => {
-    handleUpdateMinicartValue(valueWithDiscount)
-  }, [handleUpdateMinicartValue, valueWithDiscount])
+    handleUpdateMinicartValue(valueWithDiscount - valueWithoutShipping)
+  }, [handleUpdateMinicartValue, valueWithDiscount, valueWithoutShipping])
 
   return (
     <div className={styles.freigthScaleContainer}>
