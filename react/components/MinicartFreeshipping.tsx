@@ -36,9 +36,11 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
     [settings.freeShippingAmount]
   )
 
-  const valueWithDiscount = value
-    ? Number(totalizers[0]?.value) + Number(totalizers[1]?.value)
-    : value
+  const getValues = (nameValue) => totalizers?.find(({ name }) => name === nameValue)?.value 
+  const discountTotal = getValues("Discounts Total")
+  const valueWithDiscount = !discountTotal
+    ? value
+    : getValues("Items Total") + (!discountTotal ? 0 : discountTotal)
 
   useEffect(() => {
     handleUpdateMinicartValue(valueWithDiscount)
