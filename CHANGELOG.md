@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.4] - 2021-03-16
+
 ### Fixed
 
 - Fix issue showing free shipping when cart has no discount, no matter the value.
