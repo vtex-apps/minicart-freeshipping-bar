@@ -31,7 +31,7 @@
   "include": [
     "./typings/*.d.ts",
     "./**/*.tsx",
-    ".ts",
+    "*.ts",
     "src/typings/global.d.ts"
   ],
   "typeAcquisition": {
