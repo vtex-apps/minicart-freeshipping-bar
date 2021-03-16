@@ -2,19 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "*": [
-        "types/*"
-      ]
+      "*": ["types/*"]
     },
     "alwaysStrict": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "lib": [
-      "es2017",
-      "dom",
-      "es2018.promise"
-    ],
+    "lib": ["es2017", "dom", "es2018.promise"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmitOnError": false,
@@ -30,21 +24,14 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "target": "es2017",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "types": [
-      "node",
-      "react"
-    ]
+    "typeRoots": ["node_modules/@types"],
+    "types": ["node", "react"]
   },
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"],
   "include": [
     "./typings/*.d.ts",
     "./**/*.tsx",
-    ".ts",
+    "*.ts",
     "src/typings/global.d.ts"
   ],
   "typeAcquisition": {

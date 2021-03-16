@@ -1,9 +1,5 @@
-import React, {
-  useEffect,
-  useCallback,
-  useState,
-  FunctionComponent,
-} from 'react'
+import type { FunctionComponent } from 'react'
+import React, { useEffect, useCallback, useState } from 'react'
 import { useOrderForm } from 'vtex.order-manager/OrderForm'
 import { useQuery } from 'react-apollo'
 import { FormattedMessage } from 'react-intl'
@@ -19,13 +15,15 @@ interface Settings {
   freeShippingAmount: number
 }
 
+type ValueTypes = 'Discounts' | 'Items' | 'Shipping'
+
 const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   settings,
 }) => {
   const [shippingFreePercentage, setShippingFreePercentage] = useState(0)
   const [differenceBetwenValues, setDifferenceBetwenValues] = useState(0)
   const {
-    orderForm: { totalizers, value },
+    orderForm: { totalizers },
   } = useOrderForm()
 
   const handleUpdateMinicartValue = useCallback(
@@ -36,16 +34,15 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
     [settings.freeShippingAmount]
   )
 
-  const getValues = (idValue) => totalizers?.find(({ id }) => id === idValue)?.value 
-  const discountTotal = getValues("Discounts")
-  const valueWithDiscount = !discountTotal
-    ? value
-    : getValues("Items") + (!discountTotal ? 0 : discountTotal)
-  const valueWithoutShipping = !getValues("Shipping") ? getValues("Shipping") : 0
+  const getValues = (idValue: ValueTypes): number =>
+    totalizers?.find(({ id }) => id === idValue)?.value ?? 0
+
+  const finalValue =
+    getValues('Items') + getValues('Discounts') - getValues('Shipping')
 
   useEffect(() => {
-    handleUpdateMinicartValue(valueWithDiscount - valueWithoutShipping)
-  }, [handleUpdateMinicartValue, valueWithDiscount, valueWithoutShipping])
+    handleUpdateMinicartValue(finalValue)
+  }, [handleUpdateMinicartValue, finalValue])
 
   return (
     <div className={styles.freigthScaleContainer}>
@@ -110,6 +107,8 @@ const MinicartFreeshipping: FunctionComponent = () => {
 
     return null
   }
+
   return <MinimumFreightValue settings={settings} />
 }
+
 export default MinicartFreeshipping
