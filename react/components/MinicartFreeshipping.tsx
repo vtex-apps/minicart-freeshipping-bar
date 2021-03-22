@@ -15,7 +15,7 @@ interface Settings {
   freeShippingAmount: number
 }
 
-type ValueTypes = 'Discounts' | 'Items' | 'Shipping'
+type ValueTypes = 'Discounts' | 'Items'
 
 const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   settings,
@@ -37,8 +37,7 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   const getValues = (idValue: ValueTypes): number =>
     totalizers?.find(({ id }) => id === idValue)?.value ?? 0
 
-  const finalValue =
-    getValues('Items') + getValues('Discounts') - getValues('Shipping')
+  const finalValue = getValues('Items') + getValues('Discounts')
 
   useEffect(() => {
     handleUpdateMinicartValue(finalValue)
