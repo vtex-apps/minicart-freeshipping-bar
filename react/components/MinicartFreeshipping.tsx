@@ -1,6 +1,7 @@
 import type { FunctionComponent } from 'react'
 import React, { useEffect, useCallback, useState } from 'react'
 import { useOrderForm } from 'vtex.order-manager/OrderForm'
+import { useRuntime } from 'vtex.render-runtime'
 import { useQuery } from 'react-apollo'
 import { FormattedMessage } from 'react-intl'
 import { FormattedCurrency } from 'vtex.format-currency'
@@ -11,7 +12,15 @@ import AppSettings from './minicartbarSettings.graphql'
 interface SettingsProps {
   settings: Settings
 }
+
 interface Settings {
+  freeShippingAmount: number
+  isMultiBindingStore: boolean
+  freeShippingAmounts: [FreeShippingAmounts]
+}
+
+interface FreeShippingAmounts {
+  bindingId: string
   freeShippingAmount: number
 }
 
@@ -20,18 +29,29 @@ type ValueTypes = 'Discounts' | 'Items'
 const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   settings,
 }) => {
+  const { binding } = useRuntime()
   const [shippingFreePercentage, setShippingFreePercentage] = useState(0)
   const [differenceBetwenValues, setDifferenceBetwenValues] = useState(0)
+  const [freeShippingAmount, setFreeShippingAmount] = useState(0)
   const {
     orderForm: { totalizers },
   } = useOrderForm()
 
+  useEffect(() => {
+    if (settings.isMultiBindingStore) {
+      const findAmountForBinding = settings.freeShippingAmounts.find(item => item.bindingId === binding?.id)?.freeShippingAmount
+      setFreeShippingAmount(findAmountForBinding ?? 0)
+    } else {
+      setFreeShippingAmount(settings.freeShippingAmount)
+    }
+  }, [binding])
+
   const handleUpdateMinicartValue = useCallback(
     val => {
-      setShippingFreePercentage(Math.round(val / settings.freeShippingAmount))
-      setDifferenceBetwenValues(settings.freeShippingAmount - val / 100)
+      setShippingFreePercentage(Math.round(val / freeShippingAmount))
+      setDifferenceBetwenValues(freeShippingAmount - val / 100)
     },
-    [settings.freeShippingAmount]
+    [freeShippingAmount]
   )
 
   const getValues = (idValue: ValueTypes): number =>
@@ -45,21 +65,21 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
 
   return (
     <div className={styles.freigthScaleContainer}>
-      {differenceBetwenValues === settings.freeShippingAmount ? (
+      {differenceBetwenValues === freeShippingAmount ? (
         <div className={styles.text0}>
           <FormattedMessage id="store/minicartbar.text0" />
           <FormattedCurrency value={Math.max(0, differenceBetwenValues)} />!
         </div>
       ) : (
         <>
-          <span>
+          {differenceBetwenValues > 0 ? <span>
             <div className={styles.text1}>
               <FormattedMessage id="store/minicartbar.text1" />
               <span className={styles.text2}>
                 <FormattedMessage id="store/minicartbar.text2" />
               </span>
             </div>
-          </span>
+          </span> : null}
           <div className={styles.sliderContainer}>
             <div
               className={styles.barContainer}
@@ -103,6 +123,12 @@ const MinicartFreeshipping: FunctionComponent = () => {
 
   if (!settings.freeShippingAmount) {
     console.warn('No Free Shipping amount set')
+
+    return null
+  }
+
+  if (settings.isMultiBindingStore && !settings.freeShippingAmounts.length) {
+    console.warn('No Free Shipping amounts for multi binding store set')
 
     return null
   }
