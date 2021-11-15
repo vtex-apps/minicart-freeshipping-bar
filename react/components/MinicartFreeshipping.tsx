@@ -22,13 +22,6 @@ interface BindingBoundedSettings extends Settings {
 interface Settings {
   bindingId: string
   freeShippingAmount: number
-  isMultiBindingStore: boolean
-  freeShippingAmounts: [FreeShippingAmounts]
-}
-
-interface FreeShippingAmounts {
-  bindingId: string
-  freeShippingAmount: number
 }
 
 type ValueTypes = 'Discounts' | 'Items'
