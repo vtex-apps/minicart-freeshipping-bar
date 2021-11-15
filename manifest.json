@@ -43,28 +43,6 @@
         "title": "Free Shipping Amount",
         "description": "Enter the minimum amount for free shipping",
         "type": "number"
-      },
-      "isMultiBindingStore": {
-        "title": "Multiple bindings?",
-        "type": "boolean",
-        "default": false
-      },
-      "freeShippingAmounts": {
-        "title": "Multiple Binding Shipping Amounts",
-        "type": "array",
-        "items": {
-          "properties": {
-            "bindingId": {
-              "title": "Binding ID",
-              "type": "string"
-            },
-            "freeShippingAmount": {
-              "title": "Free Shipping Amount",
-              "type": "number",
-              "description": "Enter the minimum amount for free shipping"
-            }
-          }
-        }
       }
     }
   },
