@@ -10,10 +10,17 @@ import styles from './MinicartFreeshipping.css'
 import AppSettings from './minicartbarSettings.graphql'
 
 interface SettingsProps {
-  settings: Settings
+  settings: BindingBoundedSettings
+}
+
+interface BindingBoundedSettings extends Settings {
+  bindingBounded?: boolean
+  settings?: [Settings]
+  freeShippingAmount: number
 }
 
 interface Settings {
+  bindingId: string
   freeShippingAmount: number
   isMultiBindingStore: boolean
   freeShippingAmounts: [FreeShippingAmounts]
@@ -38,9 +45,12 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   } = useOrderForm()
 
   useEffect(() => {
-    if (settings.isMultiBindingStore) {
-      const findAmountForBinding = settings.freeShippingAmounts.find(item => item.bindingId === binding?.id)?.freeShippingAmount
-      setFreeShippingAmount(findAmountForBinding ?? 0)
+    if (settings.bindingBounded) {
+      const findAmountForBinding = settings.settings?.find(
+        item => item.bindingId === binding?.id
+      )?.freeShippingAmount
+
+      if (findAmountForBinding) setFreeShippingAmount(findAmountForBinding)
     } else {
       setFreeShippingAmount(settings.freeShippingAmount)
     }
@@ -72,14 +82,16 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
         </div>
       ) : (
         <>
-          {differenceBetwenValues > 0 ? <span>
-            <div className={styles.text1}>
-              <FormattedMessage id="store/minicartbar.text1" />
-              <span className={styles.text2}>
-                <FormattedMessage id="store/minicartbar.text2" />
-              </span>
-            </div>
-          </span> : null}
+          {differenceBetwenValues > 0 ? (
+            <span>
+              <div className={styles.text1}>
+                <FormattedMessage id="store/minicartbar.text1" />
+                <span className={styles.text2}>
+                  <FormattedMessage id="store/minicartbar.text2" />
+                </span>
+              </div>
+            </span>
+          ) : null}
           <div className={styles.sliderContainer}>
             <div
               className={styles.barContainer}
@@ -121,13 +133,13 @@ const MinicartFreeshipping: FunctionComponent = () => {
 
   const settings = JSON.parse(data.appSettings.message)
 
-  if (!settings.freeShippingAmount) {
+  if (!settings.bindingBounded && !settings.freeShippingAmount) {
     console.warn('No Free Shipping amount set')
 
     return null
   }
 
-  if (settings.isMultiBindingStore && !settings.freeShippingAmounts.length) {
+  if (settings.bindingBounded && !settings.settings?.[0].freeShippingAmount) {
     console.warn('No Free Shipping amounts for multi binding store set')
 
     return null

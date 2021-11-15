@@ -17,9 +17,7 @@
     },
     "free": true,
     "type": "free",
-    "availableCountries": [
-      "*"
-    ]
+    "availableCountries": ["*"]
   },
   "dependencies": {
     "vtex.order-manager": "0.x",
@@ -39,6 +37,7 @@
   "settingsSchema": {
     "title": "Minicart Free Shipping progress",
     "type": "object",
+    "bindingBounded": true,
     "properties": {
       "freeShippingAmount": {
         "title": "Free Shipping Amount",
@@ -69,8 +68,6 @@
       }
     }
   },
-  "registries": [
-    "smartcheckout"
-  ],
+  "registries": ["smartcheckout"],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
