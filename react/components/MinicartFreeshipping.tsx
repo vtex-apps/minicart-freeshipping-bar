@@ -121,6 +121,7 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
 
 const MinicartFreeshipping: FunctionComponent = () => {
   const { data } = useQuery(AppSettings, { ssr: false })
+  const { binding } = useRuntime()
 
   if (!data?.appSettings?.message) return null
 
@@ -132,7 +133,11 @@ const MinicartFreeshipping: FunctionComponent = () => {
     return null
   }
 
-  if (settings.bindingBounded && !settings.settings?.[0].freeShippingAmount) {
+  const isAmountSetForBinding = settings.settings?.find(
+    item => item.bindingId === binding?.id
+  )?.freeShippingAmount
+
+  if (settings.bindingBounded && !isAmountSetForBinding) {
     console.warn('No Free Shipping amounts for multi binding store set')
 
     return null
