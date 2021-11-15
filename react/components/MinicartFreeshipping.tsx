@@ -16,7 +16,6 @@ interface SettingsProps {
 interface BindingBoundedSettings extends Settings {
   bindingBounded?: boolean
   settings?: [Settings]
-  freeShippingAmount: number
 }
 
 interface Settings {
