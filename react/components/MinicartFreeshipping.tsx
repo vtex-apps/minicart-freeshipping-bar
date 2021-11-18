@@ -5,11 +5,17 @@ import { useRuntime } from 'vtex.render-runtime'
 import { useQuery } from 'react-apollo'
 import { FormattedMessage } from 'react-intl'
 import { FormattedCurrency } from 'vtex.format-currency'
+import { IOMessageWithMarkers } from 'vtex.native-types'
 
 import styles from './MinicartFreeshipping.css'
 import AppSettings from './minicartbarSettings.graphql'
 
-interface SettingsProps {
+interface MinicartFreeshippingProps {
+  markers?: string[]
+  emptyCartMessage?: string
+  message?: string
+}
+interface SettingsProps extends MinicartFreeshippingProps {
   settings: BindingBoundedSettings
 }
 
@@ -27,6 +33,9 @@ type ValueTypes = 'Discounts' | 'Items'
 
 const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   settings,
+  markers = [],
+  emptyCartMessage = "store/minicartbar.text0 {diference}",
+  message = "store/minicartbar.text3"
 }) => {
   const { binding } = useRuntime()
   const [shippingFreePercentage, setShippingFreePercentage] = useState(0)
@@ -69,8 +78,16 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
     <div className={styles.freigthScaleContainer}>
       {differenceBetwenValues === freeShippingAmount ? (
         <div className={styles.text0}>
-          <FormattedMessage id="store/minicartbar.text0" />
-          <FormattedCurrency value={Math.max(0, differenceBetwenValues)} />!
+          <IOMessageWithMarkers 
+                message={emptyCartMessage}
+                markers={markers}
+                handleBase="currency" 
+                values={{
+                  diference: (
+                    <FormattedCurrency value={Math.max(0, differenceBetwenValues)} />
+                  )
+                }}
+              />
         </div>
       ) : (
         <>
@@ -97,14 +114,19 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
           {differenceBetwenValues > 0 ? (
             <p className={styles.sliderText}>
               <span className={styles.text3}>
-                <FormattedMessage id="store/minicartbar.text3" />{' '}
-              </span>
-
-              <span className={styles.currencyText}>
-                <FormattedCurrency
-                  value={Math.max(0, differenceBetwenValues)}
-                />
-                !
+              <IOMessageWithMarkers 
+                message={message}
+                markers={markers}
+                handleBase="currency" 
+                values={{
+                  diference: (
+                  <span className={styles.currencyText}>
+                    <FormattedCurrency
+                      value={Math.max(0, differenceBetwenValues)}
+                    />
+                  </span>)
+                }}
+              />
               </span>
             </p>
           ) : (
@@ -118,7 +140,7 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   )
 }
 
-const MinicartFreeshipping: FunctionComponent = () => {
+const MinicartFreeshipping: FunctionComponent<MinicartFreeshippingProps> = ({message, emptyCartMessage,markers }) => {
   const { data } = useQuery(AppSettings, { ssr: false })
   const { binding } = useRuntime()
 
@@ -142,7 +164,7 @@ const MinicartFreeshipping: FunctionComponent = () => {
     return null
   }
 
-  return <MinimumFreightValue settings={settings} />
+  return <MinimumFreightValue settings={settings} markers={markers} emptyCartMessage={emptyCartMessage} message={message}/>
 }
 
 export default MinicartFreeshipping

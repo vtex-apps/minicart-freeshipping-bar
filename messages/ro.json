@@ -1,7 +1,7 @@
 {
-  "store/minicartbar.text0": "Avem livrare gratuită la: ",
+  "store/minicartbar.text0": "Avem livrare gratuită la: {diference}!",
   "store/minicartbar.text1": "Completați comanda dvs. pentru ",
   "store/minicartbar.text2": "Livrare GRATUITĂ",
-  "store/minicartbar.text3": "Au rămas doar",
+  "store/minicartbar.text3": "Au rămas doar {diference}!",
   "store/minicartbar.text4": "Ai câștigat livrare gratuită"
 }
