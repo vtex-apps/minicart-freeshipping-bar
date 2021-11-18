@@ -39,6 +39,7 @@
   "settingsSchema": {
     "title": "Minicart Free Shipping progress",
     "type": "object",
+    "bindingBounded": true,
     "properties": {
       "freeShippingAmount": {
         "title": "Free Shipping Amount",
