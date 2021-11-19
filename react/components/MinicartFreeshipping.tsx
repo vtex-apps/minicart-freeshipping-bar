@@ -34,7 +34,7 @@ type ValueTypes = 'Discounts' | 'Items'
 const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   settings,
   markers = [],
-  emptyCartMessage = "store/minicartbar.text0 {diference}",
+  emptyCartMessage = "store/minicartbar.text0",
   message = "store/minicartbar.text3"
 }) => {
   const { binding } = useRuntime()
