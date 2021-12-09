@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Crowdin configuration file
+
+### Added
+
 - Support for multiple binding stores to have different free shipping components for each binding
 
 ## [1.1.5] - 2021-03-22
