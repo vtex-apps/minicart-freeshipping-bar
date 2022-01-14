@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.6] - 2022-01-14
+
 ### Added
 
 - Support for multiple binding stores to have different free shipping components for each binding
