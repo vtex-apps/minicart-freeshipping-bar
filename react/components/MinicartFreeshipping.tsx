@@ -84,7 +84,7 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
                 handleBase="currency" 
                 values={{
                   diference: (
-                    <FormattedCurrency value={Math.max(0, differenceBetwenValues)} />
+                    <FormattedCurrency key="text0" value={Math.max(0, differenceBetwenValues)} />
                   )
                 }}
               />
@@ -120,7 +120,7 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
                 handleBase="currency" 
                 values={{
                   diference: (
-                  <span className={styles.currencyText}>
+                  <span key="text3" className={styles.currencyText}>
                     <FormattedCurrency
                       value={Math.max(0, differenceBetwenValues)}
                     />
