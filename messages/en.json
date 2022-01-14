@@ -1,7 +1,7 @@
 {
-  "store/minicartbar.text0": "We have free shipping from: ",
+  "store/minicartbar.text0": "We have free shipping from: {diference}!",
   "store/minicartbar.text1": "Complete your order to have",
   "store/minicartbar.text2": "FREE shipping",
-  "store/minicartbar.text3": "Only left",
+  "store/minicartbar.text3": "Only left {diference}!",
   "store/minicartbar.text4": "You won free shipping"
 }
