@@ -41,9 +41,24 @@
     "type": "object",
     "bindingBounded": true,
     "properties": {
-      "freeShippingAmount": {
-        "title": "Free Shipping Amount",
-        "description": "Enter the minimum amount for free shipping",
+      "freeShippingTradePolicy1": {
+        "title": "Pedido mínimo política comercial 1",
+        "description": "Introduce el importe mínimo para el envío gratuito",
+        "type": "number"
+      },
+      "freeShippingTradePolicy2": {
+        "title": "Pedido mínimo política comercial 2",
+        "description": "Introduce el importe mínimo para el envío gratuito",
+        "type": "number"
+      },
+      "freeShippingTradePolicy3": {
+        "title": "Pedido mínimo política comercial 3",
+        "description": "Introduce el importe mínimo para el envío gratuito",
+        "type": "number"
+      },
+      "freeShippingTradePolicy4": {
+        "title": "Pedido mínimo política comercial 4",
+        "description": "Introduce el importe mínimo para el envío gratuito",
         "type": "number"
       }
     }
