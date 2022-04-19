@@ -6,6 +6,7 @@ import { useQuery } from 'react-apollo'
 import { FormattedMessage } from 'react-intl'
 import { FormattedCurrency } from 'vtex.format-currency'
 
+import { getSessionChannel } from '../utils/services'
 import styles from './MinicartFreeshipping.css'
 import AppSettings from './minicartbarSettings.graphql'
 
@@ -20,7 +21,10 @@ interface BindingBoundedSettings extends Settings {
 
 interface Settings {
   bindingId: string
-  freeShippingAmount: number
+  freeShippingTradePolicy1: number
+  freeShippingTradePolicy2: number
+  freeShippingTradePolicy3: number
+  freeShippingTradePolicy4: number
 }
 
 type ValueTypes = 'Discounts' | 'Items'
@@ -36,15 +40,41 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
     orderForm: { totalizers },
   } = useOrderForm()
 
+  const getChannel = async () => {
+    const sc = await getSessionChannel()
+
+    switch (parseInt(sc, 10)) {
+      case 1:
+        setFreeShippingAmount(settings.freeShippingTradePolicy1)
+        break
+
+      case 2:
+        setFreeShippingAmount(settings.freeShippingTradePolicy2)
+        break
+
+      case 3:
+        setFreeShippingAmount(settings.freeShippingTradePolicy3)
+        break
+
+      case 4:
+        setFreeShippingAmount(settings.freeShippingTradePolicy4)
+        break
+
+      default:
+        setFreeShippingAmount(settings.freeShippingTradePolicy1)
+        break
+    }
+  }
+
   useEffect(() => {
     if (settings.bindingBounded) {
       const findAmountForBinding = settings.settings?.find(
         item => item.bindingId === binding?.id
-      )?.freeShippingAmount
+      )?.freeShippingTradePolicy1
 
       if (findAmountForBinding) setFreeShippingAmount(findAmountForBinding)
     } else {
-      setFreeShippingAmount(settings.freeShippingAmount)
+      getChannel()
     }
   }, [binding])
 
@@ -126,7 +156,7 @@ const MinicartFreeshipping: FunctionComponent = () => {
 
   const settings = JSON.parse(data.appSettings.message)
 
-  if (!settings.bindingBounded && !settings.freeShippingAmount) {
+  if (!settings.bindingBounded && !settings.freeShippingTradePolicy1) {
     console.warn('No Free Shipping amount set')
 
     return null
@@ -134,7 +164,7 @@ const MinicartFreeshipping: FunctionComponent = () => {
 
   const isAmountSetForBinding = settings.settings?.find(
     item => item.bindingId === binding?.id
-  )?.freeShippingAmount
+  )?.freeShippingTradePolicy1
 
   if (settings.bindingBounded && !isAmountSetForBinding) {
     console.warn('No Free Shipping amounts for multi binding store set')

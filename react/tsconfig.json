@@ -4,6 +4,7 @@
     "paths": {
       "*": ["types/*"]
     },
+    "allowJs": true,
     "alwaysStrict": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
