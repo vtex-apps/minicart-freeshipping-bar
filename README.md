@@ -15,7 +15,9 @@ The app is compatible with 5 different languages including: English, Spanish, It
 ## Settings
 The app has one configurable setting under My Apps section inside VTEX Admin.
 The setting is the **amount** for free shipping: expects a number.
-This will be the amount customers have to reach for the progress bar to completely fill up. 
+This free shipping will be indicated for the different commercial policies, in this case 4 policies have been added
+This will be the amount customers have to reach for the progress bar to completely fill up.
+
 
 ## Configuration
 You should first install the app on the desired **Account**. To install run: `vtex install vtexeurope.minicart-freeshipping-bar@1.x` inside the Toolbelt. 
