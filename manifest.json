@@ -1,7 +1,7 @@
 {
   "vendor": "vtexeurope",
   "name": "minicart-freeshipping-bar",
-  "version": "2.0.0",
+  "version": "1.2.0",
   "title": "Minicart Free Shipping Bar",
   "description": "Minicart Free Shipping Bar",
   "builders": {
@@ -42,23 +42,23 @@
     "bindingBounded": true,
     "properties": {
       "freeShippingTradePolicy1": {
-        "title": "Pedido mínimo política comercial 1",
-        "description": "Introduce el importe mínimo para el envío gratuito",
+        "title": "Minimum order commercial policy 1",
+        "description": "Enter the minimum amount for free shipping",
         "type": "number"
       },
       "freeShippingTradePolicy2": {
-        "title": "Pedido mínimo política comercial 2",
-        "description": "Introduce el importe mínimo para el envío gratuito",
+        "title": "Minimum order commercial policy 2",
+        "description": "Enter the minimum amount for free shipping",
         "type": "number"
       },
       "freeShippingTradePolicy3": {
-        "title": "Pedido mínimo política comercial 3",
-        "description": "Introduce el importe mínimo para el envío gratuito",
+        "title": "Minimum order commercial policy 3",
+        "description": "Enter the minimum amount for free shipping",
         "type": "number"
       },
       "freeShippingTradePolicy4": {
-        "title": "Pedido mínimo política comercial 4",
-        "description": "Introduce el importe mínimo para el envío gratuito",
+        "title": "Minimum order commercial policy 4",
+        "description": "Enter the minimum amount for free shipping",
         "type": "number"
       }
     }
