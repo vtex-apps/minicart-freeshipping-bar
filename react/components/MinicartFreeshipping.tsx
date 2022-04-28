@@ -5,8 +5,7 @@ import { useRuntime } from 'vtex.render-runtime'
 import { useQuery } from 'react-apollo'
 import { FormattedMessage } from 'react-intl'
 import { FormattedCurrency } from 'vtex.format-currency'
-
-import { getSessionChannel } from '../utils/services'
+import { useRenderSession } from 'vtex.session-client'
 import styles from './MinicartFreeshipping.css'
 import AppSettings from './minicartbarSettings.graphql'
 
@@ -21,10 +20,7 @@ interface BindingBoundedSettings extends Settings {
 
 interface Settings {
   bindingId: string
-  freeShippingTradePolicy1: number
-  freeShippingTradePolicy2: number
-  freeShippingTradePolicy3: number
-  freeShippingTradePolicy4: number
+  freeShippingTradePolicies: any[]
 }
 
 type ValueTypes = 'Discounts' | 'Items'
@@ -33,50 +29,37 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   settings,
 }) => {
   const { binding } = useRuntime()
+  const { session } = useRenderSession()
   const [shippingFreePercentage, setShippingFreePercentage] = useState(0)
   const [differenceBetwenValues, setDifferenceBetwenValues] = useState(0)
   const [freeShippingAmount, setFreeShippingAmount] = useState(0)
+  const [freeShippingIndex, setFreeShippingIndex] = useState(0)
   const {
     orderForm: { totalizers },
   } = useOrderForm()
 
-  const getChannel = async () => {
-    const sc = await getSessionChannel()
-
-    switch (parseInt(sc, 10)) {
-      case 1:
-        setFreeShippingAmount(settings.freeShippingTradePolicy1)
-        break
-
-      case 2:
-        setFreeShippingAmount(settings.freeShippingTradePolicy2)
-        break
-
-      case 3:
-        setFreeShippingAmount(settings.freeShippingTradePolicy3)
-        break
-
-      case 4:
-        setFreeShippingAmount(settings.freeShippingTradePolicy4)
-        break
-
-      default:
-        setFreeShippingAmount(settings.freeShippingTradePolicy1)
-        break
-    }
+  const getChannel = async (salesChannel) => {
+    settings.freeShippingTradePolicies.map(({freeShippingAmount, tradePolicy}, index) => {
+      if (salesChannel === tradePolicy) {
+        setFreeShippingAmount(freeShippingAmount)
+        setFreeShippingIndex(index)
+      }
+    })
   }
 
   useEffect(() => {
     if (settings.bindingBounded) {
       const findAmountForBinding = settings.settings?.find(
         item => item.bindingId === binding?.id
-      )?.freeShippingTradePolicy1
+      )?.freeShippingTradePolicies[freeShippingIndex].freeShippingAmount
 
       if (findAmountForBinding) setFreeShippingAmount(findAmountForBinding)
     } else {
-      getChannel()
+      if (session?.namespaces) {
+        getChannel(session?.namespaces?.store?.channel?.value)
+      }
     }
-  }, [binding])
+  }, [binding, session])
 
   const handleUpdateMinicartValue = useCallback(
     val => {
@@ -153,10 +136,9 @@ const MinicartFreeshipping: FunctionComponent = () => {
   const { binding } = useRuntime()
 
   if (!data?.appSettings?.message) return null
-
   const settings = JSON.parse(data.appSettings.message)
 
-  if (!settings.bindingBounded && !settings.freeShippingTradePolicy1) {
+  if (!settings.bindingBounded && !settings.freeShippingTradePolicies[0].freeShippingAmount) {
     console.warn('No Free Shipping amount set')
 
     return null
@@ -164,7 +146,7 @@ const MinicartFreeshipping: FunctionComponent = () => {
 
   const isAmountSetForBinding = settings.settings?.find(
     item => item.bindingId === binding?.id
-  )?.freeShippingTradePolicy1
+  )?.freeShippingTradePolicies[0].freeShippingAmount
 
   if (settings.bindingBounded && !isAmountSetForBinding) {
     console.warn('No Free Shipping amounts for multi binding store set')

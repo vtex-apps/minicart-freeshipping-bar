@@ -30,11 +30,11 @@
   },
   "exclude": ["node_modules"],
   "include": [
-    "./typings/*.d.ts",
+    "typings/*.d.ts",
     "./**/*.tsx",
     "*.ts",
     "src/typings/global.d.ts"
-  ],
+    ],
   "typeAcquisition": {
     "enable": false
   }
