@@ -17,10 +17,13 @@ interface BindingBoundedSettings extends Settings {
   bindingBounded?: boolean
   settings?: [Settings]
 }
-
+interface freeShippingProps {
+  freeShippingAmount: number
+  tradePolicy: string
+}
 interface Settings {
   bindingId: string
-  freeShippingTradePolicies: any[]
+  freeShippingTradePolicies: [freeShippingProps]
 }
 
 type ValueTypes = 'Discounts' | 'Items'

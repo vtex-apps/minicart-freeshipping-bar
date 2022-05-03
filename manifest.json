@@ -34,32 +34,32 @@
     "vtex.shipping-estimate-translator": "2.x",
     "vtex.format-currency": "0.x",
     "vtex.store-graphql": "2.x",
-    "vtex.apps-graphql": "2.x"
+    "vtex.apps-graphql": "2.x",
+    "vtex.session-client": "1.x"
   },
   "settingsSchema": {
     "title": "Minicart Free Shipping progress",
     "type": "object",
     "bindingBounded": true,
     "properties": {
-      "freeShippingTradePolicy1": {
-        "title": "Minimum order commercial policy 1",
-        "description": "Enter the minimum amount for free shipping",
-        "type": "number"
-      },
-      "freeShippingTradePolicy2": {
-        "title": "Minimum order commercial policy 2",
-        "description": "Enter the minimum amount for free shipping",
-        "type": "number"
-      },
-      "freeShippingTradePolicy3": {
-        "title": "Minimum order commercial policy 3",
-        "description": "Enter the minimum amount for free shipping",
-        "type": "number"
-      },
-      "freeShippingTradePolicy4": {
-        "title": "Minimum order commercial policy 4",
-        "description": "Enter the minimum amount for free shipping",
-        "type": "number"
+      "freeShippingTradePolicies": {
+        "title": "Trade Policies",
+        "description": "Free shipping per trade policies",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "tradePolicy": {
+              "title": "Trade Policy (Sales Channel)",
+              "type": "string"
+            },
+            "freeShippingAmount": {
+              "title": "Free Shipping Amount",
+              "description": "Enter the minimum amount for free shipping on this trade policy",
+              "type": "number"
+            }
+          }
+        }
       }
     }
   },
