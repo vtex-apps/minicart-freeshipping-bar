@@ -34,17 +34,32 @@
     "vtex.shipping-estimate-translator": "2.x",
     "vtex.format-currency": "0.x",
     "vtex.store-graphql": "2.x",
-    "vtex.apps-graphql": "2.x"
+    "vtex.apps-graphql": "2.x",
+    "vtex.session-client": "1.x"
   },
   "settingsSchema": {
     "title": "Minicart Free Shipping progress",
     "type": "object",
     "bindingBounded": true,
     "properties": {
-      "freeShippingAmount": {
-        "title": "Free Shipping Amount",
-        "description": "Enter the minimum amount for free shipping",
-        "type": "number"
+      "freeShippingTradePolicies": {
+        "title": "Trade Policies",
+        "description": "Free shipping per trade policies",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "tradePolicy": {
+              "title": "Trade Policy (Sales Channel)",
+              "type": "string"
+            },
+            "freeShippingAmount": {
+              "title": "Free Shipping Amount",
+              "description": "Enter the minimum amount for free shipping on this trade policy",
+              "type": "number"
+            }
+          }
+        }
       }
     }
   },
