@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Fixed
+- Fix binding settings
+
 ### Added
 - Support show for multiple shipping costs by commercial policy in `react/components/MinicartFreeshipping.tsx` file
 
