@@ -15,6 +15,7 @@ interface SettingsProps {
 
 interface BindingBoundedSettings extends Settings {
   bindingBounded?: boolean
+  freeShippingTradePolicies: [freeShippingProps]
   settings?: [Settings]
 }
 interface freeShippingProps {
@@ -23,7 +24,7 @@ interface freeShippingProps {
 }
 interface Settings {
   bindingId: string
-  freeShippingTradePolicies: [freeShippingProps]
+  freeShippingAmount: number
 }
 
 type ValueTypes = 'Discounts' | 'Items'
@@ -36,16 +37,14 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
   const [shippingFreePercentage, setShippingFreePercentage] = useState(0)
   const [differenceBetwenValues, setDifferenceBetwenValues] = useState(0)
   const [freeShippingAmount, setFreeShippingAmount] = useState(0)
-  const [freeShippingIndex, setFreeShippingIndex] = useState(0)
   const {
     orderForm: { totalizers },
   } = useOrderForm()
 
   const getChannel = async (salesChannel) => {
-    settings.freeShippingTradePolicies.map(({freeShippingAmount, tradePolicy}, index) => {
+    settings.freeShippingTradePolicies.map(({freeShippingAmount, tradePolicy}) => {
       if (salesChannel === tradePolicy) {
         setFreeShippingAmount(freeShippingAmount)
-        setFreeShippingIndex(index)
       }
     })
   }
@@ -54,7 +53,7 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
     if (settings.bindingBounded) {
       const findAmountForBinding = settings.settings?.find(
         item => item.bindingId === binding?.id
-      )?.freeShippingTradePolicies[freeShippingIndex].freeShippingAmount
+      )?.freeShippingAmount
 
       if (findAmountForBinding) setFreeShippingAmount(findAmountForBinding)
     } else {
@@ -146,10 +145,9 @@ const MinicartFreeshipping: FunctionComponent = () => {
 
     return null
   }
-
-  const isAmountSetForBinding = settings.settings?.find(
+  const isAmountSetForBinding = settings?.settings?.find(
     item => item.bindingId === binding?.id
-  )?.freeShippingTradePolicies[0].freeShippingAmount
+  )?.freeShippingAmount
 
   if (settings.bindingBounded && !isAmountSetForBinding) {
     console.warn('No Free Shipping amounts for multi binding store set')
