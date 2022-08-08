@@ -1,0 +1,13 @@
+{
+  "name": "Mini Cart Free Shipping Bar",
+  "headline": "A barra de embarque do Mini Cart Free é um componente do MiniCart.v2 que adiciona uma barra de progresso ao minicarro a fim de exibir o progresso que um cliente tem para ganhar embarque gratuito.",
+  "overview": "Este bloco é apenas um guia visual, o que significa que não fará nenhum cálculo ou deduzirá o valor do frete de sua loja. Você deve emparelhar este aplicativo com uma promoção de remessa gratuita da mesma quantia O valor da quantia, pode ser editado dentro das configurações do aplicativo.",
+  "features": [
+    "Mostrar quanto progresso um cliente tem para ganhar remessa gratuita",
+    "Compatível com 5 idiomas diferentes, incluindo: inglês, espanhol, italiano, português e romeno."
+  ],
+  "websiteURL": "https://vtex.com/",
+  "support": {
+    "url": "https://support.vtex.com/hc/requests"
+  }
+}

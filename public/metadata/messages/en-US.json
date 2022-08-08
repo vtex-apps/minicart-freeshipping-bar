@@ -1,0 +1,13 @@
+{
+  "name": "Mini Cart Free Shipping Bar",
+  "headline": "The Mini Cart Free Shipping Bar is a MiniCart.v2 component that adds a progress bar to the minicart in order to display how much progress a customer has to win free shipping.",
+  "overview": "This block is only a visual guide, meaning it will not make any calculation or deduct the shipping amount from your store. You should pair this app with a Free Shipping Promotion of the same amount The amount value, can be edited inside the App Settings.",
+  "features": [
+    "Display how much progress a customer has to win free shipping",
+    "Compatible with 5 different languages including: English, Spanish, Italian, Portuguese and Romanian."
+  ],
+  "websiteURL": "https://vtex.com/",
+  "support": {
+    "url": "https://support.vtex.com/hc/requests"
+  }
+}

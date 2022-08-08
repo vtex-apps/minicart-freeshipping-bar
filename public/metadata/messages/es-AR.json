@@ -1,0 +1,13 @@
+{
+  "name": "Mini Cart Free Shipping Bar",
+  "headline": "La barra de envío gratuito de Mini Cart es un componente de MiniCart.v2 que añade una barra de progreso al minicart para mostrar el progreso que tiene el cliente para ganar el envío gratuito.",
+  "overview": "Este bloque es sólo una guía visual, lo que significa que no hará ningún cálculo ni deducirá el importe del envío de su tienda. Deberías emparejar esta app con una promoción de envío gratuito del mismo importe El valor del importe, puede editarse dentro de la configuración de la app.",
+  "features": [
+    "Muestra el progreso que tiene un cliente para ganar el envío gratuito",
+    "Compatible con 5 idiomas diferentes, entre ellos: Inglés, español, italiano, portugués y rumano."
+  ],
+  "websiteURL": "https://vtex.com/",
+  "support": {
+    "url": "https://support.vtex.com/hc/requests"
+  }
+}
