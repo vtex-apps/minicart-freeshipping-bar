@@ -7,16 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Update context version of graphql appSettings query.
+
 ## [2.0.2] - 2022-08-16
 
 ## [2.0.1] - 2022-08-16
 
 ### Added
+
 - Add public and metadata to be able to submit the app into appstore.
 
 ## [2.0.0] - 2022-05-17
 
 ### Added
+
 - Support show for multiple shipping costs by commercial policy in `react/components/MinicartFreeshipping.tsx` file
 
 ## [1.2.0] - 2022-03-21
