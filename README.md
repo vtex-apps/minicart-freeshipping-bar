@@ -1,34 +1,38 @@
-
 # Mini Cart Free Shipping Bar
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-The **Mini Cart Free Shipping Bar** is a MiniCart.v2 component that adds a progress bar to the minicart in order to display how much progress a customer has to **win** free shipping. 
+The **Mini Cart Free Shipping Bar** is a MiniCart.v2 component that adds a progress bar to the minicart in order to display how much progress a customer has to **win** free shipping.
 
 This block is **only a visual guide**, meaning it will not make any calculation or deduct the shipping amount from your store. You should pair this app with a **Free Shipping Promotion** of the same **amount**
 The **amount** value, can be edited inside the **App Settings**
 
-The app is compatible with 5 different languages including: English, Spanish, Italian, Portuguese and Romanian. 
+The app is compatible with 5 different languages including: English, Spanish, Italian, Portuguese and Romanian.
 
 ## Settings
+
 The app has one configurable setting under My Apps section inside VTEX Admin.
 The setting is the **amount** for free shipping: expects a number.
 This free shipping will be indicated for the different commercial policies, in this case 4 policies have been added
 This will be the amount customers have to reach for the progress bar to completely fill up.
 
-
 ## Configuration
-You should first install the app on the desired **Account**. To install run: `vtex install vtexeurope.minicart-freeshipping-bar@1.x` inside the Toolbelt. 
+
+You should first install the app on the desired **Account**. To install run: `vtex install vtexeurope.minicart-freeshipping-bar@2.x` inside the Toolbelt.
 After that you should declare the app as a **peerDependency** on your **Manifest** inside your store's **Store Theme**:
+
 ```
-"peerDependencies": { 
-    "vtexeurope.minicart-freeshipping-bar": "1.x"
+"peerDependencies": {
+    "vtexeurope.minicart-freeshipping-bar": "2.x"
 }
 ```
 
 After this is completed, you should add the block **minicart-bar** inside your **Store-Theme's Header** under the **MiniCart** section:
+
 ```
 {
   "minicart.v2": {
@@ -107,14 +111,16 @@ After this is completed, you should add the block **minicart-bar** inside your *
   }
 }
 ```
+
 ## Customization
+
 Here is the list of available CSS Handles you can use on the store
 | CSS Handles |
-| ----------- | 
-| `freigthScaleContainer` | 
-| `.sliderContainer` | 
-| `.barContainer` | 
-| `.sliderText` | 
+| ----------- |
+| `freigthScaleContainer` |
+| `.sliderContainer` |
+| `.barContainer` |
+| `.sliderText` |
 | `.text0` |
 | `.text1` |
 | `.text2` |
