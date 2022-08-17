@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Update context version of graphql appSettings query.
+- Update README with current version 2.x
 
 ## [2.0.2] - 2022-08-16
 
