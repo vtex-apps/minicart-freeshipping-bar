@@ -138,8 +138,8 @@ const MinicartFreeshipping: FunctionComponent = () => {
   const { data } = useQuery(AppSettings, { ssr: false })
   const { binding } = useRuntime()
 
-  if (!data?.appSettings?.message) return null
-  const settings = JSON.parse(data.appSettings.message)
+  if (!data?.publicSettingsForApp?.message) return null
+  const settings = JSON.parse(data.publicSettingsForApp.message)
 
   if (!settings.bindingBounded && !settings.freeShippingTradePolicies[0].freeShippingAmount) {
     console.warn('No Free Shipping amount set')
