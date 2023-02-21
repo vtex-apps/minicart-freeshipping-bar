@@ -38,6 +38,7 @@
     "vtex.session-client": "1.x"
   },
   "settingsSchema": {
+  "access": "public",
     "title": "Minicart Free Shipping progress",
     "type": "object",
     "bindingBounded": true,
