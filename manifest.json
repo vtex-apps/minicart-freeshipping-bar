@@ -34,10 +34,11 @@
     "vtex.shipping-estimate-translator": "2.x",
     "vtex.format-currency": "0.x",
     "vtex.store-graphql": "2.x",
-    "vtex.apps-graphql": "2.x",
+    "vtex.apps-graphql": "3.x",
     "vtex.session-client": "1.x"
   },
   "settingsSchema": {
+    "access": "public",
     "title": "Minicart Free Shipping progress",
     "type": "object",
     "bindingBounded": true,
