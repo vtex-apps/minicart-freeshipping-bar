@@ -1,7 +1,7 @@
 {
   "vendor": "vtexeurope",
   "name": "minicart-freeshipping-bar",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "title": "Minicart Free Shipping Bar",
   "description": "Minicart Free Shipping Bar",
   "builders": {
@@ -17,7 +17,9 @@
     },
     "free": true,
     "type": "free",
-    "availableCountries": ["*"]
+    "availableCountries": [
+      "*"
+    ]
   },
   "dependencies": {
     "vtex.order-manager": "0.x",
@@ -62,6 +64,8 @@
       }
     }
   },
-  "registries": ["smartcheckout"],
+  "registries": [
+    "smartcheckout"
+  ],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
