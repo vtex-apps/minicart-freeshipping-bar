@@ -1,7 +1,8 @@
 query AppSettings {
-  appSettings(app: "vtexeurope.minicart-freeshipping-bar", version: "1.x")
-    @context(provider: "vtex.apps-graphql") {
+  publicSettingsForApp(
+    app: "vtexeurope.minicart-freeshipping-bar"
+    version: "1.x"
+  ) @context(provider: "vtex.apps-graphql") {
     message
-
   }
 }
