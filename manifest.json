@@ -17,9 +17,7 @@
     },
     "free": true,
     "type": "free",
-    "availableCountries": [
-      "*"
-    ]
+    "availableCountries": ["*"]
   },
   "dependencies": {
     "vtex.order-manager": "0.x",
@@ -34,11 +32,12 @@
     "vtex.shipping-estimate-translator": "2.x",
     "vtex.format-currency": "0.x",
     "vtex.store-graphql": "2.x",
-    "vtex.apps-graphql": "2.x"
+    "vtex.apps-graphql": "3.x"
   },
   "settingsSchema": {
     "title": "Minicart Free Shipping progress",
     "type": "object",
+    "access": "public",
     "bindingBounded": true,
     "properties": {
       "freeShippingAmount": {
@@ -48,8 +47,6 @@
       }
     }
   },
-  "registries": [
-    "smartcheckout"
-  ],
+  "registries": ["smartcheckout"],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

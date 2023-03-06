@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update `vtex.apps-graphql` dependency to `3.x` and use new `publicSettingsForApp` query to get settings
+
 ## [1.2.0] - 2022-03-21
 
 ### Added
