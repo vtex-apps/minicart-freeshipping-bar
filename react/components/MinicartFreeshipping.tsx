@@ -6,6 +6,7 @@ import { useQuery } from 'react-apollo'
 import { FormattedMessage } from 'react-intl'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { useRenderSession } from 'vtex.session-client'
+
 import styles from './MinicartFreeshipping.css'
 import AppSettings from './minicartbarSettings.graphql'
 
@@ -17,13 +18,13 @@ interface BindingBoundedSettings extends Settings {
   bindingBounded?: boolean
   settings?: [Settings]
 }
-interface freeShippingProps {
+interface FreeShippingProps {
   freeShippingAmount: number
   tradePolicy: string
 }
 interface Settings {
   bindingId: string
-  freeShippingTradePolicies: [freeShippingProps]
+  freeShippingTradePolicies: [FreeShippingProps]
 }
 
 type ValueTypes = 'Discounts' | 'Items'
@@ -41,13 +42,15 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
     orderForm: { totalizers },
   } = useOrderForm()
 
-  const getChannel = async (salesChannel) => {
-    settings.freeShippingTradePolicies.map(({freeShippingAmount, tradePolicy}, index) => {
-      if (salesChannel === tradePolicy) {
-        setFreeShippingAmount(freeShippingAmount)
-        setFreeShippingIndex(index)
+  const getChannel = async salesChannel => {
+    settings.freeShippingTradePolicies.forEach(
+      ({ freeShippingAmount: freeShippingValue, tradePolicy }, index) => {
+        if (salesChannel === tradePolicy) {
+          setFreeShippingAmount(freeShippingValue)
+          setFreeShippingIndex(index)
+        }
       }
-    })
+    )
   }
 
   useEffect(() => {
@@ -57,10 +60,8 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
       )?.freeShippingTradePolicies[freeShippingIndex].freeShippingAmount
 
       if (findAmountForBinding) setFreeShippingAmount(findAmountForBinding)
-    } else {
-      if (session?.namespaces) {
-        getChannel(session?.namespaces?.store?.channel?.value)
-      }
+    } else if (session?.namespaces) {
+      getChannel(session?.namespaces?.store?.channel?.value)
     }
   }, [binding, session])
 
@@ -135,13 +136,20 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
 }
 
 const MinicartFreeshipping: FunctionComponent = () => {
-  const { data } = useQuery(AppSettings, { ssr: false })
+  const { data } = useQuery(AppSettings, {
+    ssr: false,
+    fetchPolicy: 'no-cache',
+  })
+
   const { binding } = useRuntime()
 
   if (!data?.publicSettingsForApp?.message) return null
   const settings = JSON.parse(data.publicSettingsForApp.message)
 
-  if (!settings.bindingBounded && !settings.freeShippingTradePolicies[0].freeShippingAmount) {
+  if (
+    !settings.bindingBounded &&
+    !settings.freeShippingTradePolicies[0].freeShippingAmount
+  ) {
     console.warn('No Free Shipping amount set')
 
     return null
