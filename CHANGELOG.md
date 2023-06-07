@@ -7,12 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2.1.2] - 2023-03-06
 ### Fixed
+
+- Changed settings query to have 'no-cache' fetching policy
+
+## [2.1.2] - 2023-03-06
+
+### Fixed
+
 - Revert 2.1.1
 
 ## [2.1.1] - 2023-02-24
+
 ### Fixed
+
 - Settings schema properties structure
 
 ## [2.1.0] - 2023-02-24
