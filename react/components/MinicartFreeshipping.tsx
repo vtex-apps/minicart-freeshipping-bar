@@ -119,7 +119,11 @@ const MinimumFreightValue: FunctionComponent<SettingsProps> = ({
 }
 
 const MinicartFreeshipping: FunctionComponent = () => {
-  const { data } = useQuery(AppSettings, { ssr: false })
+  const { data } = useQuery(AppSettings, {
+    ssr: false,
+    fetchPolicy: 'no-cache',
+  })
+
   const { binding } = useRuntime()
 
   if (!data?.publicSettingsForApp?.message) return null
